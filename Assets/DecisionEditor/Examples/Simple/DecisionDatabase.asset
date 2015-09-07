@@ -11,32 +11,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09134b7ccf5f3486ba8d812c92e9b07d, type: 3}
   m_Name: DecisionDatabase
   m_EditorClassIdentifier: 
-  title: Simple
+  title: Example
   description: 
   decisions:
-  - displayName: Coal Trusts Fray
-    id: COAL_TRUSTS_FRAY
+  - displayName: Coal nice to Fray?
+    id: COAL_TRUST
     defaultValue: 0
     notes: When Coal first meets up with Fray in the Battlefield.
+    expanded: 1
+  - displayName: Coal trusts char?
+    id: CHAR_TRUST
+    defaultValue: 0
+    notes: 
     expanded: 0
-  - displayName: Untitled
+  - displayName: Killed Alpha?
+    id: KILLED_ALPHA
+    defaultValue: 1
+    notes: Did Scavenger Alpha live after his boss fight with Coal?
+    expanded: 0
+  - displayName: Missing ID Test
     id: 
     defaultValue: 0
     notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: MY_ID
-    defaultValue: 0
-    notes: 
-    expanded: 0
+    expanded: 1
   editDatabase: Edit Decision Database

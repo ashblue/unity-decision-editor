@@ -14,8 +14,8 @@ namespace Adnc.Decision {
 			}
 		}
 
-		public bool GetDecision (string id) {
-			DecisionCheck(id);
+		public virtual bool GetDecision (string id) {
+			if (!DecisionExists(id)) return false;
 
 			bool result;
 			if (decisions.TryGetValue(id, out result)) {
@@ -25,14 +25,16 @@ namespace Adnc.Decision {
 			}
 		}
 
-		public void SetDecision (string id, bool val) {
-			DecisionCheck(id);
+		public virtual void SetDecision (string id, bool val) {
+			if (!DecisionExists(id)) return;
 			decisions[id] = val;
 		}
 
-		void DecisionCheck (string id) {
-			Debug.Assert(decisionDef.ContainsKey(id), 
-			             string.Format("Decision ID '{0}' does not exist. Please fix.", id));
+		bool DecisionExists (string id) {
+			bool hasKey = decisionDef.ContainsKey(id);
+			Debug.Assert(hasKey, string.Format("Decision ID '{0}' does not exist. Please fix.", id));
+
+			return hasKey;
 		}
 	}
 }
