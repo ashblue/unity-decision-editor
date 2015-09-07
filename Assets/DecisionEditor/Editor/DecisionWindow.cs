@@ -74,6 +74,7 @@ namespace Adnc.Decision {
 			if (GUILayout.Button("Add Decision")) AddDecision(true);
 			/***** END Header *****/
 
+			/***** BEGIN Body *****/
 			EditorGUILayout.EndVertical(); // END Padding
 
 			scrollPos = GUILayout.BeginScrollView(scrollPos);
@@ -84,8 +85,6 @@ namespace Adnc.Decision {
 				decision = decisionTmp[i];
 			
 				errorId = string.IsNullOrEmpty(decision.id);
-
-//				if (errorId) EditorGUILayout.LabelField("Missing an ID", errorStyle);
 
 				if (!errorId) {
 					decision.expanded = EditorGUILayout.Foldout(decision.expanded, decision.displayName);
@@ -121,9 +120,7 @@ namespace Adnc.Decision {
 
 			EditorGUILayout.EndVertical(); // END Padding
 			GUILayout.EndScrollView();
-
-			/***** BEGIN Footer *****/
-			/***** END Footer *****/			
+			/***** END Body *****/			
 
 			if (deleteIndex != -1) {
 				RemoveDecision(deleteIndex);
