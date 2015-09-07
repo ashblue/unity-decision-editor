@@ -8,7 +8,7 @@ namespace Adnc.Decision {
 		[TextArea(3, 5)]
 		public string description;
 
-		[HideInInspector] public List<DecisionBase> decisions;
+		[HideInInspector] public List<DecisionBase> decisions = new List<DecisionBase>();
 
 		[EditDecisionDatabase]
 		public string editDatabase = "Edit Decision Database";

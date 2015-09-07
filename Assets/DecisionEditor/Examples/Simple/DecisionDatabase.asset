@@ -11,3 +11,177 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09134b7ccf5f3486ba8d812c92e9b07d, type: 3}
   m_Name: DecisionDatabase
   m_EditorClassIdentifier: 
+  title: Simple
+  description: asdf
+  decisions:
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: 
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: sdfasdfasdf
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 1
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 1
+  - displayName: Test Item
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 1
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 1
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  - displayName: Untitled
+    id: 
+    defaultValue: 0
+    notes: 
+    expanded: 0
+  editDatabase: Edit Decision Database

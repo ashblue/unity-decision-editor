@@ -6,7 +6,8 @@ namespace Adnc.Decision {
 	public class EditDecisionDatabaseDrawer : PropertyDrawer {
 		public override void OnGUI (Rect position, SerializedProperty prop, GUIContent label) {
 			if (GUI.Button(position, prop.stringValue)) {
-				Debug.Log("Setup database connection logic here");
+				DecisionWindow.SetDatabase(prop.serializedObject.targetObject as DecisionDatabase);
+//				Debug.Log("Setup database connection logic here");
 			}
 		}
 

@@ -2,10 +2,14 @@
 using System.Collections;
 
 namespace Adnc.Decision {
+	[System.Serializable]
 	public class DecisionBase {
-		public string displayName;
+		public string displayName = "Untitled";
 		public string id;
 		public bool defaultValue;
+
+		// Editor only values
 		public string notes;
+		public bool expanded;
 	}
 }
