@@ -5,16 +5,17 @@ using System.Linq;
 
 namespace Adnc.Decision {
 	public class DecisionWindow : EditorWindow {
-		static DecisionDatabase database;
-		static List<DecisionBase> decisionTmp;
-		static bool repaint;
+		static DecisionDatabase database; // Current database we are editing
+		static List<DecisionBase> decisionTmp; // Temporary dump of decisions for filter purspoes
 
 		GUIStyle titleStyle; // Style used for title in upper left
 
-		int paddingSize = 30;
+		int paddingSize = 15; // Total padding wrapping the window
 		GUIStyle containerPadding;
-		string filter;
 
+		string filter; // Current search target
+		Vector2 scrollPos; // Scroll window details
+		int deleteIndex = -1;
 
 		[MenuItem("Window/Decision Editor")]
 		public static void ShowEditor () {
@@ -32,8 +33,9 @@ namespace Adnc.Decision {
 
 		DecisionBase decision;
 		void OnGUI () {
-			EditorGUILayout.BeginVertical(containerPadding);
+			EditorGUILayout.BeginVertical(containerPadding); // BEGIN Padding
 
+			/***** BEGIN Header *****/
 			if (database == null) {
 				GUILayout.Label("Decision Database", titleStyle);
 				GUILayout.Label("Please select a decision database from the assets and click the edit " +
@@ -41,13 +43,12 @@ namespace Adnc.Decision {
 				return;
 			}
 
-
-			/***** BEGIN Header *****/
 			EditorGUILayout.BeginHorizontal();
 
 			EditorGUI.BeginChangeCheck();
 
 			GUILayout.Label(string.Format("Decision Database: {0}", database.title), titleStyle);
+
 			GUI.SetNextControlName("Filter");
 			if (GUI.GetNameOfFocusedControl() == "Filter") {
 				filter = EditorGUILayout.TextField(filter);
@@ -56,12 +57,20 @@ namespace Adnc.Decision {
 			}
 
 			if (EditorGUI.EndChangeCheck()) {
-				decisionTmp = SearchDecisions(filter);
+				FilterDecisions(filter);
 			}
 
 			EditorGUILayout.EndHorizontal();
+
+			if (GUILayout.Button("Add Decision")) AddDecision(true);
 			/***** END Header *****/
 
+			EditorGUILayout.EndVertical(); // END Padding
+
+			scrollPos = GUILayout.BeginScrollView(scrollPos);
+			EditorGUILayout.BeginVertical(containerPadding); // BEGIN Padding
+
+			EditorGUI.BeginChangeCheck();
 			for (int i = 0, l = decisionTmp.Count; i < l; i++) {
 				decision = decisionTmp[i];
 				decision.expanded = EditorGUILayout.Foldout(decision.expanded, decision.displayName);
@@ -70,35 +79,71 @@ namespace Adnc.Decision {
 
 					decision.displayName = EditorGUILayout.TextField("Display Name", decision.displayName);
 					decision.id = EditorGUILayout.TextField("ID", decision.id);
+					decision.defaultValue = EditorGUILayout.Toggle("Default Value", decision.defaultValue);
+
+					EditorGUILayout.LabelField("Notes");
+					decision.notes = GUILayout.TextArea(decision.notes, GUILayout.ExpandHeight(true), GUILayout.Width(300f), GUILayout.MaxHeight(500f));
+
+					if (GUILayout.Button(string.Format("Remove '{0}'", decision.displayName))) {
+						if (ConfirmDelete(decision.displayName)) {
+							deleteIndex = i;
+						}
+					}
 
 					EndIndent();
 				}
 			}
 
-			EditorGUILayout.EndVertical();
+			if (EditorGUI.EndChangeCheck()) {
+				EditorUtility.SetDirty(database);
+			}
 
-//			expanded = EditorGUILayout.Foldout(expanded, "Test Foldout");
+			EditorGUILayout.EndVertical(); // END Padding
+			GUILayout.EndScrollView();
 
-//			EditorGUI.BeginDisabledGroup(false);
-//			EditorGUI.LabelField()
-//			EditorGUI.EndDisabledGroup();
+			/***** BEGIN Footer *****/
+			/***** END Footer *****/			
 
-//			foreach ()
-//			if (database.decisions != null) GUILayout.Label(database.decisions.Count.ToString(), EditorStyles.label);
-			
-			//		myString = EditorGUILayout.TextField ("Text Field", myString);
-			//		
-			//		groupEnabled = EditorGUILayout.BeginToggleGroup ("Optional Settings", groupEnabled);
-			//		myBool = EditorGUILayout.Toggle ("Toggle", myBool);
-			//		myFloat = EditorGUILayout.Slider ("Slider", myFloat, -3, 3);
-			//		EditorGUILayout.EndToggleGroup ();
+			if (deleteIndex != -1) {
+				RemoveDecision(deleteIndex);
+				deleteIndex = -1;
+			}
 		}
 
-		List<DecisionBase> SearchDecisions (string search) {
+		bool ConfirmDelete (string itemName) {
+			return EditorUtility.DisplayDialog("Delete Item", 
+			                                   string.Format("Are you sure you want to delete '{0}'", itemName), 
+			                                   string.Format("Delete '{0}'", itemName),
+			                                   "Cancel"
+			);
+		}
+		
+		void FilterDecisions (string search) {
+			if (string.IsNullOrEmpty(search)) {
+				decisionTmp = database.decisions;
+			}
+
 			string[] searchBits = search.ToLower().Split(' ');
 			List<DecisionBase> matches = database.decisions.Where(d => searchBits.All(n => d.displayName.ToLower().Contains(n))).ToList();
+		
+			decisionTmp = matches;
+		}
 
-			return matches;
+		void AddDecision (bool placeAtTop) {
+			if (placeAtTop) {
+				database.decisions.Insert(0, new DecisionDefault());
+			} else {
+				database.decisions.Add(new DecisionDefault());
+			}
+
+			FilterDecisions(filter);
+			EditorUtility.SetDirty(database);
+		}
+
+		void RemoveDecision (int index) {
+			database.decisions.RemoveAt(index);
+			FilterDecisions(filter);
+			EditorUtility.SetDirty(database);
 		}
 
 		void BeginIndent (float indent) {
