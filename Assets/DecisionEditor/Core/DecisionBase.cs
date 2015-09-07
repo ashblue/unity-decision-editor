@@ -5,11 +5,11 @@ namespace Adnc.Decision {
 	[System.Serializable]
 	public class DecisionBase {
 		public string displayName = "Untitled";
-		public string id;
-		public bool defaultValue;
+		public string id = "";
+		public bool defaultValue = false;
 
 		// Editor only values
-		public string notes;
-		public bool expanded;
+		public string notes = "";
+		public bool expanded = true;
 	}
 }

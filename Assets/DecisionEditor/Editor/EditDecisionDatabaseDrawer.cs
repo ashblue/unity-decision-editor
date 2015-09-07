@@ -7,7 +7,7 @@ namespace Adnc.Decision {
 		public override void OnGUI (Rect position, SerializedProperty prop, GUIContent label) {
 			if (GUI.Button(position, prop.stringValue)) {
 				DecisionWindow.SetDatabase(prop.serializedObject.targetObject as DecisionDatabase);
-//				Debug.Log("Setup database connection logic here");
+				DecisionWindow.ShowEditor();
 			}
 		}
 

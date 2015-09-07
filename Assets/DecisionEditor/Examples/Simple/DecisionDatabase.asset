@@ -12,87 +12,12 @@ MonoBehaviour:
   m_Name: DecisionDatabase
   m_EditorClassIdentifier: 
   title: Simple
-  description: asdf
+  description: 
   decisions:
-  - displayName: 
-    id: 
+  - displayName: Coal Trusts Fray
+    id: COAL_TRUSTS_FRAY
     defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: 
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: sdfasdfasdf
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 1
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 1
-  - displayName: Test Item
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 1
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 1
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
+    notes: When Coal first meets up with Fray in the Battlefield.
     expanded: 0
   - displayName: Untitled
     id: 
@@ -110,77 +35,7 @@ MonoBehaviour:
     notes: 
     expanded: 0
   - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
-    defaultValue: 0
-    notes: 
-    expanded: 0
-  - displayName: Untitled
-    id: 
+    id: MY_ID
     defaultValue: 0
     notes: 
     expanded: 0
